@@ -1,0 +1,19 @@
+st413=>start: start contains
+io415=>inputoutput: input: x, a, b
+op418=>operation: res = []
+cond421=>condition: if a <= b
+cond426=>operation: res.append('x is an interior point') if  a <= x and x <= b
+cond437=>operation: res.append('x is outside the interval') if  x <= a or x >= b
+io455=>inputoutput: output: res
+e453=>end: end function return
+sub449=>subroutine: res.append('the interval is empty')
+
+st413->io415
+io415->op418
+op418->cond421
+cond421(yes)->cond426
+cond426->cond437
+cond437->io455
+io455->e453
+cond421(no)->sub449
+sub449->io455

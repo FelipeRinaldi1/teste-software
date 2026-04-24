@@ -8,9 +8,9 @@ class TestClassificacaoCliente(unittest.TestCase):
         self.assertEqual(verificar_vip(5, 5000), "Sim")
 
     def test_regras_nao_vip(self):
-        self.assertEqual(verificar_vip(2, 1999.99), "Não") # T2
-        self.assertEqual(verificar_vip(1, 3000), "Não")    # T3
-        self.assertEqual(verificar_vip(0, 0), "Não")       # T4
+        self.assertEqual(verificar_vip(2, 1999.99), "Não") 
+        self.assertEqual(verificar_vip(1, 3000), "Não")    
+        self.assertEqual(verificar_vip(0, 0), "Não")       
 
     def test_entradas_invalidas(self):
         self.assertEqual(verificar_vip(-1, 2000), "Erro: Valores Negativos")

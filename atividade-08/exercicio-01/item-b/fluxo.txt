@@ -1,0 +1,30 @@
+st68=>start: start lookup
+io70=>inputoutput: input: vector, key, n
+op73=>operation: low = 0
+op75=>operation: high = n
+cond78=>condition: while low <= high
+op82=>operation: medium = (low + high) // 2
+cond85=>condition: if vector[medium] == key
+io92=>inputoutput: output: medium
+e90=>end: end function return
+cond98=>condition: if vector[medium] < key
+op102=>operation: low = medium + 1
+op106=>operation: high = medium - 1
+io115=>inputoutput: output: -1
+e113=>end: end function return
+
+st68->io70
+io70->op73
+op73->op75
+op75->cond78
+cond78(yes)->op82
+op82->cond85
+cond85(yes)->io92
+io92->e90
+cond85(no)->cond98
+cond98(yes)->op102
+op102->cond78
+cond98(no)->op106
+op106->cond78
+cond78(no)->io115
+io115->e113

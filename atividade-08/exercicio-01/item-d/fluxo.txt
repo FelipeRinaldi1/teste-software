@@ -1,0 +1,25 @@
+st245=>start: start m
+io247=>inputoutput: input: i, obj
+op250=>operation: s = 0
+cond253=>condition: if obj is None
+io260=>inputoutput: output: None
+e258=>end: end function return
+cond267=>operation: i += 1 if  i % 2 == 1
+cond278=>condition: while i > 0
+op282=>operation: s += obj
+op284=>operation: i -= 1
+io291=>inputoutput: output: s
+e289=>end: end function return
+
+st245->io247
+io247->op250
+op250->cond253
+cond253(yes)->io260
+io260->e258
+cond253(no)->cond267
+cond267->cond278
+cond278(yes)->op282
+op282->op284
+op284(left)->cond278
+cond278(no)->io291
+io291->e289

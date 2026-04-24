@@ -1,0 +1,27 @@
+st3=>start: start compute
+io5=>inputoutput: input: x, y
+cond9=>condition: if y == 0
+io16=>inputoutput: output: 'y is zero'
+e14=>end: end function return
+cond22=>condition: if x == 0
+io29=>inputoutput: output: 'x is zero'
+e27=>end: end function return
+op34=>operation: results = []
+cond37=>condition: for i in range(1, x + 1)
+cond42=>operation: results.append(i) if  i % y == 0
+io57=>inputoutput: output: results
+e55=>end: end function return
+
+st3->io5
+io5->cond9
+cond9(yes)->io16
+io16->e14
+cond9(no)->cond22
+cond22(yes)->io29
+io29->e27
+cond22(no)->op34
+op34->cond37
+cond37(yes)->cond42
+cond42->cond37
+cond37(no)->io57
+io57->e55

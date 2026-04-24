@@ -1,0 +1,86 @@
+op123=>operation: from enum import Enum
+op125=>operation: class ErrorCodes(Enum):
+    EACCES = 0
+    ENODEV = 1
+    ENOENT = 2
+
+    def getErrorNum(self):
+        return self.value
+st128=>start: start example1
+io130=>inputoutput: input: condition, string1, errno, input_data
+op133=>operation: p = None
+op135=>operation: string2 = None
+op137=>operation: message = [None] * 3
+op139=>operation: i = 0
+cond142=>condition: if condition
+op146=>operation: p = [0]
+op148=>operation: p[0] = 1
+op156=>operation: p[1] = 0
+cond153=>condition: exception raised?
+cond158=>condition: except Exception
+op162=>operation: pass
+cond168=>operation: print('They are equal') if  condition or string1 == string2
+op178=>operation: message[ErrorCodes.EACCES.getErrorNum()] = 'Permission denied'
+op180=>operation: message[ErrorCodes.ENODEV.getErrorNum()] = 'No such device'
+op182=>operation: message[ErrorCodes.ENOENT.getErrorNum()] = 'No such file or directory'
+op184=>operation: error_num = errno.getErrorNum()
+cond187=>operation: print(message[error_num]) if  error_num in [0, 1, 2]
+op197=>operation: output = [''] * 100
+cond200=>condition: for i in range(101)
+op205=>operation: output[i] = input_data[i]
+if input_data[i] == '\x00':
+    break
+cond204=>condition: exception raised?
+cond207=>condition: except IndexError
+sub211=>subroutine: break
+op218=>operation: i = 0
+cond221=>condition: while True
+op226=>operation: output[i] = input_data[i]
+if input_data[i] == '\x00':
+    break
+i += 1
+cond225=>condition: exception raised?
+cond228=>condition: except IndexError
+sub232=>subroutine: break
+e239=>end: end example1
+
+op123->op125
+op125->st128
+st128->io130
+io130->op133
+op133->op135
+op135->op137
+op137->op139
+op139->cond142
+cond142(yes)->op146
+op146->op148
+op148->op156
+op156->cond153
+cond153(yes)->cond158
+cond158(yes)->op162
+op162->cond168
+cond168->op178
+op178->op180
+op180->op182
+op182->op184
+op184->cond187
+cond187->op197
+op197->cond200
+cond200(yes)->op205
+op205->cond204
+cond204(yes)->cond207
+cond207(yes)->sub211
+cond207(no)->cond200
+cond204(no)->cond200
+cond200(no)->op218
+op218->cond221
+cond221(yes)->op226
+op226->cond225
+cond225(yes)->cond228
+cond228(yes)->sub232
+cond228(no)->cond221
+cond225(no)->cond221
+cond221(no)->e239
+cond158(no)->cond168
+cond153(no)->cond168
+cond142(no)->op156

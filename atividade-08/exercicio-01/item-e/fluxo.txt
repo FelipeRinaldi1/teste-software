@@ -1,0 +1,8 @@
+st300=>start: start f
+io302=>inputoutput: input: vec
+io308=>inputoutput: output: 'f'
+e306=>end: end function return
+
+st300->io302
+io302->io308
+io308->e306
