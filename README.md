@@ -22,7 +22,7 @@ docker exec lab-teste python atividade-09/exercicio-01/item-a/compute.py
 ### 3. Rodar todos os testes de uma pasta
 
 ```bash
-docker exec lab-teste pytest atividade-09/ --cov=atividade-09/
+docker exec lab-teste pytest atividade-09/
 ```
 
 ### 4. Gerar Fluxograma
